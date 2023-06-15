@@ -1,4 +1,5 @@
-jsm
+jsm/libs/ammo.wasm.js
+jsm/libs/ammo.wasm.wasm
 mmd
 three.module.js
 three.module.min.js
