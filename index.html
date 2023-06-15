@@ -7,8 +7,8 @@
     <link type="text/css" rel="stylesheet" href="style.css">
     <style>
         body {
-            color: #444;
-            background: #fff;
+            color: #d5d5d5;
+            background: #000;
         }
         a {
             color: #08f;
@@ -45,7 +45,6 @@
 		</script>
 
 <script type="module">
-
     import * as THREE from 'three';
 
     import { OutlineEffect } from 'three/addons/effects/OutlineEffect.js';
@@ -84,7 +83,7 @@
         // scene
 
         scene = new THREE.Scene();
-        scene.background = new THREE.Color( 0xffffff );
+        scene.background = new THREE.Color( 0x000000 );
 
         scene.add( new THREE.PolarGridHelper( 30, 0 ) );
 
