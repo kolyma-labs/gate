@@ -141,11 +141,6 @@
             const percentComplete = (xhr.loaded / xhr.total) * 100;
             const rounded = Math.round(percentComplete, 2);
             console.log(rounded + "% downloaded");
-
-            if (rounded === 100) {
-              overlay.remove();
-              console.log("Overlay removed");
-            }
           }
         }
 
@@ -200,7 +195,8 @@
           null
         );
 
-        //
+        // Remove the overlay
+        overlay.remove();
 
         window.addEventListener("resize", onWindowResize);
       }
