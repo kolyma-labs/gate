@@ -95,7 +95,7 @@
 
       function init() {
         const overlay = document.getElementById("overlay");
-        overlay.remove();
+        // overlay.remove();
 
         const container = document.createElement("div");
         document.body.appendChild(container);
@@ -139,7 +139,12 @@
         function onProgress(xhr) {
           if (xhr.lengthComputable) {
             const percentComplete = (xhr.loaded / xhr.total) * 100;
-            console.log(Math.round(percentComplete, 2) + "% downloaded");
+            const rounded = Math.round(percentComplete, 2);
+            console.log(rounded + "% downloaded");
+
+            if (rounded === 100) {
+              overlay.remove();
+            }
           }
         }
 
