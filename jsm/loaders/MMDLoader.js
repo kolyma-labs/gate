@@ -38,7 +38,7 @@ import {
   RGB_ETC2_Format,
 } from "three";
 import { MMDToonShader } from "../shaders/MMDToonShader.js";
-import { TGALoader } from "./TGALoader";
+import { TGALoader } from "../loaders/TGALoader.js";
 import { MMDParser } from "../libs/mmdparser.module.js";
 
 /**
