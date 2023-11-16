@@ -95,24 +95,24 @@ const MMDToonShader = {
 					#endif
 
 					#include <common>
-				`
+				`,
     )
     .replace(
       "#include <envmap_common_pars_fragment>",
       `
 					#include <gradientmap_pars_fragment>
-				`
+				`,
     )
     .replace("#include <envmap_pars_fragment>", "")
     .replace(
       "#include <lights_phong_pars_fragment>",
-      lights_mmd_toon_pars_fragment
+      lights_mmd_toon_pars_fragment,
     )
     .replace(
       "#include <envmap_fragment>",
       `
 					${mmd_toon_matcap_fragment}
-				`
+				`,
     ),
 };
 

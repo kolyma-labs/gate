@@ -88,7 +88,7 @@ class MMDAnimationHelper {
           "accepts only " +
           "THREE.SkinnedMesh or " +
           "THREE.Camera or " +
-          "THREE.Audio instance."
+          "THREE.Audio instance.",
       );
     }
 
@@ -116,7 +116,7 @@ class MMDAnimationHelper {
           "accepts only " +
           "THREE.SkinnedMesh or " +
           "THREE.Camera or " +
-          "THREE.Audio instance."
+          "THREE.Audio instance.",
       );
     }
 
@@ -191,7 +191,7 @@ class MMDAnimationHelper {
       mesh.geometry.userData.MMD.format === "pmx"
     ) {
       const sortedBonesData = this._sortBoneDataArray(
-        mesh.geometry.userData.MMD.bones.slice()
+        mesh.geometry.userData.MMD.bones.slice(),
       );
       const ikSolver =
         params.ik !== false ? this._createCCDIKSolver(mesh) : null;
@@ -221,7 +221,7 @@ class MMDAnimationHelper {
   enable(key, enabled) {
     if (this.enabled[key] === undefined) {
       throw new Error(
-        "THREE.MMDAnimationHelper.enable: " + "unknown key " + key
+        "THREE.MMDAnimationHelper.enable: " + "unknown key " + key,
       );
     }
 
@@ -254,7 +254,7 @@ class MMDAnimationHelper {
         "THREE.MMDAnimationHelper._addMesh: " +
           "SkinnedMesh '" +
           mesh.name +
-          "' has already been added."
+          "' has already been added.",
       );
     }
 
@@ -276,7 +276,7 @@ class MMDAnimationHelper {
         "THREE.MMDAnimationHelper._setupCamera: " +
           "Camera '" +
           camera.name +
-          "' has already been set."
+          "' has already been set.",
       );
     }
 
@@ -301,7 +301,7 @@ class MMDAnimationHelper {
         "THREE.MMDAnimationHelper._setupAudio: " +
           "Audio '" +
           audio.name +
-          "' has already been set."
+          "' has already been set.",
       );
     }
 
@@ -337,7 +337,7 @@ class MMDAnimationHelper {
         "THREE.MMDAnimationHelper._removeMesh: " +
           "SkinnedMesh '" +
           mesh.name +
-          "' has not been added yet."
+          "' has not been added yet.",
       );
     }
 
@@ -352,7 +352,7 @@ class MMDAnimationHelper {
         "THREE.MMDAnimationHelper._clearCamera: " +
           "Camera '" +
           camera.name +
-          "' has not been set yet."
+          "' has not been set yet.",
       );
     }
 
@@ -370,7 +370,7 @@ class MMDAnimationHelper {
         "THREE.MMDAnimationHelper._clearAudio: " +
           "Audio '" +
           audio.name +
-          "' has not been set yet."
+          "' has not been set yet.",
       );
     }
 
@@ -474,14 +474,14 @@ class MMDAnimationHelper {
       ) {
         if (!objects.sortedBonesData)
           objects.sortedBonesData = this._sortBoneDataArray(
-            mesh.geometry.userData.MMD.bones.slice()
+            mesh.geometry.userData.MMD.bones.slice(),
           );
 
         this._animatePMXMesh(
           mesh,
           objects.sortedBonesData,
           ikSolver && this.enabled.ik ? ikSolver : null,
-          grantSolver && this.enabled.grant ? grantSolver : null
+          grantSolver && this.enabled.grant ? grantSolver : null,
         );
       } else {
         if (ikSolver && this.enabled.ik) {
@@ -592,7 +592,7 @@ class MMDAnimationHelper {
       mesh,
       mesh.geometry.userData.MMD.rigidBodies,
       mesh.geometry.userData.MMD.constraints,
-      params
+      params,
     );
   }
 
@@ -859,7 +859,7 @@ function updateOne(mesh, boneIndex, ikSolver, grantSolver) {
       if (_grantResultMap.has(linkIndex)) {
         _grantResultMap.set(
           linkIndex,
-          _grantResultMap.get(linkIndex).copy(bones[linkIndex].quaternion)
+          _grantResultMap.get(linkIndex).copy(bones[linkIndex].quaternion),
         );
       }
     }

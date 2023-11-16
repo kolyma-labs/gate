@@ -11071,11 +11071,11 @@ Parser.prototype.leftToRightModel = function (model) {
     helper.leftToRightEuler(model.constraints[i].rotation);
     helper.leftToRightVector3Range(
       model.constraints[i].translationLimitation1,
-      model.constraints[i].translationLimitation2
+      model.constraints[i].translationLimitation2,
     );
     helper.leftToRightEulerRange(
       model.constraints[i].rotationLimitation1,
-      model.constraints[i].rotationLimitation2
+      model.constraints[i].rotationLimitation2,
     );
   }
 };

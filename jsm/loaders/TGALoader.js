@@ -20,7 +20,7 @@ class TGALoader extends DataTextureLoader {
             header.colormap_type !== 1
           ) {
             console.error(
-              "THREE.TGALoader: Invalid type colormap data for indexed type."
+              "THREE.TGALoader: Invalid type colormap data for indexed type.",
             );
           }
 
@@ -34,7 +34,7 @@ class TGALoader extends DataTextureLoader {
         case TGA_TYPE_RLE_GREY:
           if (header.colormap_type) {
             console.error(
-              "THREE.TGALoader: Invalid type colormap data for colormap type."
+              "THREE.TGALoader: Invalid type colormap data for colormap type.",
             );
           }
 
@@ -50,7 +50,7 @@ class TGALoader extends DataTextureLoader {
         default:
           console.error(
             'THREE.TGALoader: Invalid type "%s".',
-            header.image_type
+            header.image_type,
           );
       }
 
@@ -70,7 +70,7 @@ class TGALoader extends DataTextureLoader {
       ) {
         console.error(
           'THREE.TGALoader: Invalid pixel size "%s".',
-          header.pixel_size
+          header.pixel_size,
         );
       }
     }
@@ -88,7 +88,7 @@ class TGALoader extends DataTextureLoader {
       if (use_pal) {
         palettes = data.subarray(
           offset,
-          (offset += header.colormap_length * (header.colormap_size >> 3))
+          (offset += header.colormap_length * (header.colormap_size >> 3)),
         );
       }
 
@@ -138,7 +138,7 @@ class TGALoader extends DataTextureLoader {
 
         pixel_data = data.subarray(
           offset,
-          (offset += use_pal ? header.width * header.height : pixel_total)
+          (offset += use_pal ? header.width * header.height : pixel_total),
         );
       }
 
@@ -157,7 +157,7 @@ class TGALoader extends DataTextureLoader {
       x_step,
       x_end,
       image,
-      palettes
+      palettes,
     ) {
       const colormap = palettes;
       let color,
@@ -187,7 +187,7 @@ class TGALoader extends DataTextureLoader {
       x_start,
       x_step,
       x_end,
-      image
+      image,
     ) {
       let color,
         i = 0,
@@ -216,7 +216,7 @@ class TGALoader extends DataTextureLoader {
       x_start,
       x_step,
       x_end,
-      image
+      image,
     ) {
       let i = 0,
         x,
@@ -243,7 +243,7 @@ class TGALoader extends DataTextureLoader {
       x_start,
       x_step,
       x_end,
-      image
+      image,
     ) {
       let i = 0,
         x,
@@ -270,7 +270,7 @@ class TGALoader extends DataTextureLoader {
       x_start,
       x_step,
       x_end,
-      image
+      image,
     ) {
       let color,
         i = 0,
@@ -299,7 +299,7 @@ class TGALoader extends DataTextureLoader {
       x_start,
       x_step,
       x_end,
-      image
+      image,
     ) {
       let i = 0,
         x,
@@ -371,7 +371,7 @@ class TGALoader extends DataTextureLoader {
               x_start,
               x_step,
               x_end,
-              image
+              image,
             );
             break;
 
@@ -384,7 +384,7 @@ class TGALoader extends DataTextureLoader {
               x_start,
               x_step,
               x_end,
-              image
+              image,
             );
             break;
 
@@ -404,7 +404,7 @@ class TGALoader extends DataTextureLoader {
               x_step,
               x_end,
               image,
-              palette
+              palette,
             );
             break;
 
@@ -417,7 +417,7 @@ class TGALoader extends DataTextureLoader {
               x_start,
               x_step,
               x_end,
-              image
+              image,
             );
             break;
 
@@ -430,7 +430,7 @@ class TGALoader extends DataTextureLoader {
               x_start,
               x_step,
               x_end,
-              image
+              image,
             );
             break;
 
@@ -443,7 +443,7 @@ class TGALoader extends DataTextureLoader {
               x_start,
               x_step,
               x_end,
-              image
+              image,
             );
             break;
 
@@ -552,7 +552,7 @@ class TGALoader extends DataTextureLoader {
       header.width,
       header.height,
       result.pixel_data,
-      result.palettes
+      result.palettes,
     );
 
     return {

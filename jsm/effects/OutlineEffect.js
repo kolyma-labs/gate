@@ -73,7 +73,7 @@ class OutlineEffect {
     const defaultColor = new Color().fromArray(
       parameters.defaultColor !== undefined
         ? parameters.defaultColor
-        : [0, 0, 0]
+        : [0, 0, 0],
     );
     const defaultAlpha =
       parameters.defaultAlpha !== undefined ? parameters.defaultAlpha : 1.0;
@@ -283,7 +283,7 @@ class OutlineEffect {
             outlineParameters.thickness;
         if (outlineParameters.color !== undefined)
           material.uniforms.outlineColor.value.fromArray(
-            outlineParameters.color
+            outlineParameters.color,
           );
         if (outlineParameters.alpha !== undefined)
           material.uniforms.outlineAlpha.value = outlineParameters.alpha;

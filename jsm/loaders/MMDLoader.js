@@ -127,8 +127,8 @@ class MMDLoader extends Loader {
           new Error(
             "THREE.MMDLoader: Unknown model file extension ." +
               modelExtension +
-              "."
-          )
+              ".",
+          ),
         );
 
       return;
@@ -140,7 +140,7 @@ class MMDLoader extends Loader {
         onLoad(builder.build(data, resourcePath, onProgress, onError));
       },
       onProgress,
-      onError
+      onError,
     );
   }
 
@@ -163,11 +163,11 @@ class MMDLoader extends Loader {
         onLoad(
           object.isCamera
             ? builder.buildCameraAnimation(vmd)
-            : builder.build(vmd, object)
+            : builder.build(vmd, object),
         );
       },
       onProgress,
-      onError
+      onError,
     );
   }
 
@@ -198,11 +198,11 @@ class MMDLoader extends Loader {
             });
           },
           onProgress,
-          onError
+          onError,
         );
       },
       onProgress,
-      onError
+      onError,
     );
   }
 
@@ -235,7 +235,7 @@ class MMDLoader extends Loader {
           }
         },
         onProgress,
-        onError
+        onError,
       );
   }
 
@@ -266,7 +266,7 @@ class MMDLoader extends Loader {
           }
         },
         onProgress,
-        onError
+        onError,
       );
   }
 
@@ -307,7 +307,7 @@ class MMDLoader extends Loader {
           }
         },
         onProgress,
-        onError
+        onError,
       );
     }
   }
@@ -340,7 +340,7 @@ class MMDLoader extends Loader {
           }
         },
         onProgress,
-        onError
+        onError,
       );
   }
 
@@ -542,13 +542,13 @@ class GeometryBuilder {
 
       for (let j = 0; j < 4; j++) {
         skinIndices.push(
-          v.skinIndices.length - 1 >= j ? v.skinIndices[j] : 0.0
+          v.skinIndices.length - 1 >= j ? v.skinIndices[j] : 0.0,
         );
       }
 
       for (let j = 0; j < 4; j++) {
         skinWeights.push(
-          v.skinWeights.length - 1 >= j ? v.skinWeights[j] : 0.0
+          v.skinWeights.length - 1 >= j ? v.skinWeights[j] : 0.0,
         );
       }
     }
@@ -791,7 +791,7 @@ class GeometryBuilder {
 
       const attribute = new Float32BufferAttribute(
         data.metadata.vertexCount * 3,
-        3
+        3,
       );
       attribute.name = morph.name;
 
@@ -912,11 +912,11 @@ class GeometryBuilder {
     geometry.setAttribute("uv", new Float32BufferAttribute(uvs, 2));
     geometry.setAttribute(
       "skinIndex",
-      new Uint16BufferAttribute(skinIndices, 4)
+      new Uint16BufferAttribute(skinIndices, 4),
     );
     geometry.setAttribute(
       "skinWeight",
-      new Float32BufferAttribute(skinWeights, 4)
+      new Float32BufferAttribute(skinWeights, 4),
     );
     geometry.setIndex(indices);
 
@@ -1091,7 +1091,7 @@ class MaterialBuilder {
         if (material.textureIndex !== -1) {
           params.map = this._loadTexture(
             data.textures[material.textureIndex],
-            textures
+            textures,
           );
 
           // Since PMX spec don't have standard to list map files except color map and env map,
@@ -1109,7 +1109,7 @@ class MaterialBuilder {
         ) {
           params.matcap = this._loadTexture(
             data.textures[material.envTextureIndex],
-            textures
+            textures,
           );
 
           // Same as color map above, keep file name in userData for further usage.
@@ -1233,7 +1233,7 @@ class MaterialBuilder {
           "THREE.MMDLoader: " +
             filePath +
             " seems like a " +
-            "not right default texture path. Using toon00.bmp instead."
+            "not right default texture path. Using toon00.bmp instead.",
         );
 
         index = 0;
@@ -1279,7 +1279,7 @@ class MaterialBuilder {
         delete texture.readyCallbacks;
       },
       onProgress,
-      onError
+      onError,
     );
 
     texture.readyCallbacks = [];
@@ -1397,7 +1397,7 @@ class MaterialBuilder {
         detectImageTransparency(
           imageData,
           geometry.attributes.uv.array,
-          geometry.index.array.slice(group.start, group.start + group.count)
+          geometry.index.array.slice(group.start, group.start + group.count),
         )
       ) {
         map.transparent = true;
@@ -1500,8 +1500,8 @@ class AnimationBuilder {
           VectorKeyframeTrack,
           times,
           positions,
-          pInterpolations
-        )
+          pInterpolations,
+        ),
       );
       tracks.push(
         this._createTrack(
@@ -1509,8 +1509,8 @@ class AnimationBuilder {
           QuaternionKeyframeTrack,
           times,
           rotations,
-          rInterpolations
-        )
+          rInterpolations,
+        ),
       );
     }
 
@@ -1557,8 +1557,8 @@ class AnimationBuilder {
         new NumberKeyframeTrack(
           ".morphTargetInfluences[" + morphTargetDictionary[key] + "]",
           times,
-          values
-        )
+          values,
+        ),
       );
     }
 
@@ -1662,8 +1662,8 @@ class AnimationBuilder {
         VectorKeyframeTrack,
         times,
         centers,
-        cInterpolations
-      )
+        cInterpolations,
+      ),
     );
 
     tracks.push(
@@ -1672,8 +1672,8 @@ class AnimationBuilder {
         QuaternionKeyframeTrack,
         times,
         quaternions,
-        qInterpolations
-      )
+        qInterpolations,
+      ),
     );
     tracks.push(
       this._createTrack(
@@ -1681,8 +1681,8 @@ class AnimationBuilder {
         VectorKeyframeTrack,
         times,
         positions,
-        pInterpolations
-      )
+        pInterpolations,
+      ),
     );
     tracks.push(
       this._createTrack(
@@ -1690,8 +1690,8 @@ class AnimationBuilder {
         NumberKeyframeTrack,
         times,
         fovs,
-        fInterpolations
-      )
+        fInterpolations,
+      ),
     );
 
     return new AnimationClip("", -1, tracks);
@@ -1752,14 +1752,14 @@ class AnimationBuilder {
     const track = new typedKeyframeTrack(node, times, values);
 
     track.createInterpolant = function InterpolantFactoryMethodCubicBezier(
-      result
+      result,
     ) {
       return new CubicBezierInterpolation(
         this.times,
         this.values,
         this.getValueSize(),
         result,
-        new Float32Array(interpolations)
+        new Float32Array(interpolations),
       );
     };
 
@@ -1775,7 +1775,7 @@ class CubicBezierInterpolation extends Interpolant {
     sampleValues,
     sampleSize,
     resultBuffer,
-    params
+    params,
   ) {
     super(parameterPositions, sampleValues, sampleSize, resultBuffer);
 
@@ -2017,7 +2017,7 @@ class MMDToonMaterial extends ShaderMaterial {
     Object.defineProperty(
       this,
       "color",
-      Object.getOwnPropertyDescriptor(this, "diffuse")
+      Object.getOwnPropertyDescriptor(this, "diffuse"),
     );
 
     this.setValues(parameters);

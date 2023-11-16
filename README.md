@@ -1,12 +1,12 @@
 <header>
-<img src="https://www.katsuki.moe/favicons/pinned.svg" alt="logo" height="100" align="left">
+<img src="https://www.orzklv.uz/favicons/pinned.svg" alt="logo" height="100" align="left">
 <h1 style="display: inline">Miku</h1>
 
 Just a dancing Hatsune Miku!
 
-[![GitHub top language](https://img.shields.io/github/languages/top/katsuki-yuri/miku?style=flat-square&logo=github)](https://github.com/katsuki-yuri/miku)
-[![Channel](https://img.shields.io/badge/Chat-grey?style=flat-square&logo=telegram)](https://t.me/yurionblog)
-[![Test CI](https://github.com/katsuki-yuri/miku/actions/workflows/build.yml/badge.svg)](https://github.com/katsuki-yuri/miku/actions/workflows/build.yml)
+[![GitHub top language](https://img.shields.io/github/languages/top/orzklv/kolyma?style=flat-square&logo=github)](https://github.com/orzklv/kolyma)
+[![Channel](https://img.shields.io/badge/Chat-grey?style=flat-square&logo=telegram)](https://t.me/orzklvb)
+[![Test CI](https://github.com/orzklv/kolyma/actions/workflows/build.yml/badge.svg)](https://github.com/orzklv/kolyma/actions/workflows/build.yml)
 
 </header>
 
@@ -34,7 +34,7 @@ All you need to do is just host those static files and enjoy dancing miku!
 Also, you may actually run the docker image hosted on GitHub Container Registry:
 
 ```bash
-docker run -p 3000:3000 ghcr.io/katsuki-yuri/miku:latest
+docker run -p 3000:3000 ghcr.io/orzklv/kolyma:latest
 ```
 
 ## License

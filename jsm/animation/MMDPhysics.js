@@ -39,7 +39,7 @@ class MMDPhysics {
   constructor(mesh, rigidBodyParams, constraintParams = [], params = {}) {
     if (typeof Ammo === "undefined") {
       throw new Error(
-        "THREE.MMDPhysics: Import ammo.js https://github.com/kripken/ammo.js"
+        "THREE.MMDPhysics: Import ammo.js https://github.com/kripken/ammo.js",
       );
     }
 
@@ -235,7 +235,7 @@ class MMDPhysics {
       dispatcher,
       cache,
       solver,
-      config
+      config,
     );
     return world;
   }
@@ -243,7 +243,7 @@ class MMDPhysics {
   _initRigidBodies(rigidBodies) {
     for (let i = 0, il = rigidBodies.length; i < il; i++) {
       this.bodies.push(
-        new RigidBody(this.mesh, this.world, rigidBodies[i], this.manager)
+        new RigidBody(this.mesh, this.world, rigidBodies[i], this.manager),
       );
     }
   }
@@ -260,8 +260,8 @@ class MMDPhysics {
           bodyA,
           bodyB,
           params,
-          this.manager
-        )
+          this.manager,
+        ),
       );
     }
   }
@@ -742,7 +742,7 @@ class RigidBody {
 
         case 1:
           return new Ammo.btBoxShape(
-            new Ammo.btVector3(p.width, p.height, p.depth)
+            new Ammo.btVector3(p.width, p.height, p.depth),
           );
 
         case 2:
@@ -784,7 +784,7 @@ class RigidBody {
       weight,
       state,
       shape,
-      localInertia
+      localInertia,
     );
     info.set_m_friction(params.friction);
     info.set_m_restitution(params.restitution);
@@ -983,7 +983,7 @@ class Constraint {
       bodyB.body,
       formA2,
       formB2,
-      true
+      true,
     );
 
     const lll = manager.allocVector3();
@@ -994,22 +994,22 @@ class Constraint {
     lll.setValue(
       params.translationLimitation1[0],
       params.translationLimitation1[1],
-      params.translationLimitation1[2]
+      params.translationLimitation1[2],
     );
     lul.setValue(
       params.translationLimitation2[0],
       params.translationLimitation2[1],
-      params.translationLimitation2[2]
+      params.translationLimitation2[2],
     );
     all.setValue(
       params.rotationLimitation1[0],
       params.rotationLimitation1[1],
-      params.rotationLimitation1[2]
+      params.rotationLimitation1[2],
     );
     aul.setValue(
       params.rotationLimitation2[0],
       params.rotationLimitation2[1],
-      params.rotationLimitation2[2]
+      params.rotationLimitation2[2],
     );
 
     constraint.setLinearLowerLimit(lll);
@@ -1093,7 +1093,7 @@ class MMDPhysicsHelper extends Object3D {
         depthWrite: false,
         opacity: 0.25,
         transparent: true,
-      })
+      }),
     );
 
     this.materials.push(
@@ -1104,7 +1104,7 @@ class MMDPhysicsHelper extends Object3D {
         depthWrite: false,
         opacity: 0.25,
         transparent: true,
-      })
+      }),
     );
 
     this.materials.push(
@@ -1115,7 +1115,7 @@ class MMDPhysicsHelper extends Object3D {
         depthWrite: false,
         opacity: 0.25,
         transparent: true,
-      })
+      }),
     );
 
     this._init();
@@ -1173,8 +1173,8 @@ class MMDPhysicsHelper extends Object3D {
               rotation.x(),
               rotation.y(),
               rotation.z(),
-              rotation.w()
-            )
+              rotation.w(),
+            ),
           );
       }
     }
@@ -1204,7 +1204,7 @@ class MMDPhysicsHelper extends Object3D {
             param.depth * 2,
             8,
             8,
-            8
+            8,
           );
 
         case 2:

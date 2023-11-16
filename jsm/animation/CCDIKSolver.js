@@ -161,19 +161,19 @@ class CCDIKSolver {
             limitation.x * c2,
             limitation.y * c2,
             limitation.z * c2,
-            c
+            c,
           );
         }
 
         if (rotationMin !== undefined) {
           link.rotation.setFromVector3(
-            _vector.setFromEuler(link.rotation).max(rotationMin)
+            _vector.setFromEuler(link.rotation).max(rotationMin),
           );
         }
 
         if (rotationMax !== undefined) {
           link.rotation.setFromVector3(
-            _vector.setFromEuler(link.rotation).min(rotationMax)
+            _vector.setFromEuler(link.rotation).min(rotationMax),
           );
         }
 
@@ -219,7 +219,7 @@ class CCDIKSolver {
             "THREE.CCDIKSolver: bone " +
               link0.name +
               " is not the child of bone " +
-              link1.name
+              link1.name,
           );
         }
 
