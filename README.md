@@ -4,7 +4,6 @@
 
 Just a dancing Hatsune Miku!
 
-[![GitHub top language](https://img.shields.io/github/languages/top/orzklv/kolyma?style=flat-square&logo=github)](https://github.com/orzklv/kolyma)
 [![Channel](https://img.shields.io/badge/Chat-grey?style=flat-square&logo=telegram)](https://t.me/orzklvb)
 [![Test CI](https://github.com/orzklv/kolyma/actions/workflows/build.yml/badge.svg)](https://github.com/orzklv/kolyma/actions/workflows/build.yml)
 
