@@ -168,10 +168,9 @@
           if (xhr.lengthComputable) {
             const percentComplete = (xhr.loaded / xhr.total) * 100;
             const rounded = Math.round(percentComplete, 2);
-            
-            if (rounded != 100) {
-              console.log("👨🏻‍🚀 " + rounded + "% horny");
-            } else {
+            console.log("👨🏻‍🚀 " + rounded + "% horny");
+
+            if (rounded == 100) {
               console.log("✨ Max level horniness reached!");
             }
           }
