@@ -6,7 +6,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: miku
+  IMAGE_NAME: kolyma
   IMAGE_AUTHOR: orzklv
 
 jobs:
