@@ -12,142 +12,142 @@ const clock = new THREE.Clock();
 
 const startButton = document.getElementById("startButton");
 startButton.addEventListener("click", function () {
-Ammo().then(function () {
+  Ammo().then(function () {
     init();
     animate();
-});
+  });
 });
 
 function init() {
-const overlay = document.getElementById("overlay");
-// overlay.remove();
+  const overlay = document.getElementById("overlay");
+  // overlay.remove();
 
-const container = document.createElement("div");
-document.body.appendChild(container);
+  const container = document.createElement("div");
+  document.body.appendChild(container);
 
-camera = new THREE.PerspectiveCamera(
+  camera = new THREE.PerspectiveCamera(
     45,
     window.innerWidth / window.innerHeight,
     1,
     2000,
-);
+  );
 
-// scene
+  // scene
 
-scene = new THREE.Scene();
-scene.background = new THREE.Color(0x000000);
+  scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x000000);
 
-scene.add(new THREE.PolarGridHelper(30, 0));
+  scene.add(new THREE.PolarGridHelper(30, 0));
 
-const listener = new THREE.AudioListener();
-camera.add(listener);
-scene.add(camera);
+  const listener = new THREE.AudioListener();
+  camera.add(listener);
+  scene.add(camera);
 
-const ambient = new THREE.AmbientLight(0xaaaaaa, 1);
-scene.add(ambient);
+  const ambient = new THREE.AmbientLight(0xaaaaaa, 1);
+  scene.add(ambient);
 
-const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-directionalLight.position.set(-1, 1, 1).normalize();
-scene.add(directionalLight);
+  const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+  directionalLight.position.set(-1, 1, 1).normalize();
+  scene.add(directionalLight);
 
-//
+  //
 
-renderer = new THREE.WebGLRenderer({ antialias: true });
-renderer.setPixelRatio(window.devicePixelRatio);
-renderer.setSize(window.innerWidth, window.innerHeight);
-container.appendChild(renderer.domElement);
+  renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  container.appendChild(renderer.domElement);
 
-effect = new OutlineEffect(renderer);
+  effect = new OutlineEffect(renderer);
 
-// model
+  // model
 
-function onProgress(xhr) {
+  function onProgress(xhr) {
     if (xhr.lengthComputable) {
-    const percentComplete = (xhr.loaded / xhr.total) * 100;
-    const rounded = Math.round(percentComplete, 2);
-    console.log("👨🏻‍🚀 " + rounded + "% horny");
+      const percentComplete = (xhr.loaded / xhr.total) * 100;
+      const rounded = Math.round(percentComplete, 2);
+      console.log("👨🏻‍🚀 " + rounded + "% horny");
 
-    if (rounded == 100) {
+      if (rounded == 100) {
         console.log("✨ Max level horniness reached!");
+      }
     }
-    }
-}
+  }
 
-const modelFile = "assets/miku/miku_v2.pmd";
-const vmdFiles = ["assets/vmds/wavefile_v2.vmd"];
-const cameraFiles = ["assets/vmds/wavefile_camera.vmd"];
-const audioFile = "assets/audios/wavefile_short.mp3";
-const audioParams = { delayTime: (160 * 1) / 30 };
+  const modelFile = "assets/miku/miku_v2.pmd";
+  const vmdFiles = ["assets/vmds/wavefile_v2.vmd"];
+  const cameraFiles = ["assets/vmds/wavefile_camera.vmd"];
+  const audioFile = "assets/audios/wavefile_short.mp3";
+  const audioParams = { delayTime: (160 * 1) / 30 };
 
-helper = new MMDAnimationHelper();
+  helper = new MMDAnimationHelper();
 
-const loader = new MMDLoader();
+  const loader = new MMDLoader();
 
-loader.loadWithAnimation(
+  loader.loadWithAnimation(
     modelFile,
     vmdFiles,
     function (mmd) {
-    mesh = mmd.mesh;
+      mesh = mmd.mesh;
 
-    helper.add(mesh, {
+      helper.add(mesh, {
         animation: mmd.animation,
         physics: true,
-    });
+      });
 
-    loader.loadAnimation(
+      loader.loadAnimation(
         cameraFiles,
         camera,
         function (cameraAnimation) {
-        helper.add(camera, {
+          helper.add(camera, {
             animation: cameraAnimation,
-        });
+          });
 
-        new THREE.AudioLoader().load(
+          new THREE.AudioLoader().load(
             audioFile,
             function (buffer) {
-            const audio = new THREE.Audio(listener).setBuffer(buffer);
+              const audio = new THREE.Audio(listener).setBuffer(buffer);
 
-            helper.add(audio, audioParams);
-            scene.add(mesh);
+              helper.add(audio, audioParams);
+              scene.add(mesh);
 
-            ready = true;
+              ready = true;
             },
             onProgress,
             null,
-        );
+          );
         },
         onProgress,
         null,
-    );
+      );
     },
     onProgress,
     null,
-);
+  );
 
-// Remove the overlay
-overlay.remove();
+  // Remove the overlay
+  overlay.remove();
 
-window.addEventListener("resize", onWindowResize);
+  window.addEventListener("resize", onWindowResize);
 }
 
 function onWindowResize() {
-camera.aspect = window.innerWidth / window.innerHeight;
-camera.updateProjectionMatrix();
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
 
-effect.setSize(window.innerWidth, window.innerHeight);
+  effect.setSize(window.innerWidth, window.innerHeight);
 }
 
 //
 
 function animate() {
-requestAnimationFrame(animate);
-render();
+  requestAnimationFrame(animate);
+  render();
 }
 
 function render() {
-if (ready) {
+  if (ready) {
     helper.update(clock.getDelta());
-}
+  }
 
-effect.render(scene, camera);
+  effect.render(scene, camera);
 }
