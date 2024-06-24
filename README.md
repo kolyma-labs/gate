@@ -1,11 +1,15 @@
-<header>
-<img src="https://www.orzklv.uz/favicons/pinned.svg" alt="logo" height="100" align="left">
-<h1 style="display: inline">Miku</h1>
+<p align="center">
+    <img src=".github/assets/header.png" alt="Kolyma's {Gate}">
+</p>
 
-Just a dancing Hatsune Miku!
+<p align="center">
+    <h3 align="center">Just a dancing Hatsune Miku!</h3>
+</p>
 
-[![Channel](https://img.shields.io/badge/Chat-grey?style=flat-square&logo=telegram)](https://t.me/orzklvb)
-[![Test CI](https://github.com/orzklv/kolyma/actions/workflows/build.yml/badge.svg)](https://github.com/orzklv/kolyma/actions/workflows/build.yml)
+<p align="center">
+    <img align="center" src="https://img.shields.io/github/languages/top/kolyma-labs/gate?style=flat&logo=nixos&logoColor=ffffff&labelColor=242424&color=242424" alt="Top Used Language">
+    <a href="https://github.com/kolyma-labs/gate/actions/workflows/build.yml"><img align="center" src="https://img.shields.io/github/actions/workflow/status/kolyma-labs/gate/build.yml?style=flat&logo=github&logoColor=ffffff&labelColor=242424&color=242424" alt="Test CI"></a>
+</p>
 
 </header>
 
@@ -40,3 +44,7 @@ docker run -p 3000:3000 ghcr.io/orzklv/kolyma:latest
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 for details.
+
+<p align="center">
+    <img src=".github/assets/footer.png" alt="Kolyma's {Gate}">
+</p>
