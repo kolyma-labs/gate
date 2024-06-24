@@ -10,13 +10,13 @@ let ready = false;
 
 const clock = new THREE.Clock();
 
-const startButton = document.getElementById("startButton");
-startButton.addEventListener("click", function () {
-  Ammo().then(function () {
-    init();
-    animate();
-  });
-});
+// const loadingButton = document.getElementById("loadingButton");
+// loadingButton.addEventListener("click", function () {
+//   Ammo().then(function () {
+//     init();
+//     animate();
+//   });
+// });
 
 function init() {
   const overlay = document.getElementById("overlay");
@@ -50,7 +50,7 @@ function init() {
   directionalLight.position.set(-1, 1, 1).normalize();
   scene.add(directionalLight);
 
-  //
+  // renderer
 
   renderer = new THREE.WebGLRenderer({ antialias: true });
   renderer.setPixelRatio(window.devicePixelRatio);
@@ -153,3 +153,9 @@ function render() {
 }
 
 console.log("Animation loaded!");
+
+// Automatically start the animation
+Ammo().then(function () {
+  init();
+  animate();
+});
