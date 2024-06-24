@@ -151,3 +151,5 @@ function render() {
 
   effect.render(scene, camera);
 }
+
+console.log("Animation loaded!");

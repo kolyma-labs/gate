@@ -1,6 +1,5 @@
 /* ES Module Shims 1.10.0 */
 (function () {
-
     const hasDocument = typeof document !== 'undefined';
   
     const noop = () => {};
@@ -1061,3 +1060,5 @@
     }
   
   })();
+
+console.log('Modules loaded...');
