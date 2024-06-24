@@ -7,7 +7,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: gate
-  IMAGE_AUTHOR: orzklv
+  IMAGE_AUTHOR: kolyma-labs
 
 jobs:
   build-and-push-image:
