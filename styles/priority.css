@@ -1,8 +1,10 @@
 body {
-  color: #d5d5d5;
+  /* #d5d5d5 */
+  color: #000;
   background: #000;
 }
 
 a {
-  color: #08f;
+  /* #08f */
+  color: #000;
 }

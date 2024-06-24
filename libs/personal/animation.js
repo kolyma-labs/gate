@@ -3,20 +3,10 @@ import { OutlineEffect } from "three/addons/effects/OutlineEffect.js";
 import { MMDLoader } from "three/addons/loaders/MMDLoader.js";
 import { MMDAnimationHelper } from "three/addons/animation/MMDAnimationHelper.js";
 
-let mesh, camera, scene, renderer, effect;
-let helper;
-
+let mesh, camera, scene, renderer, effect, helper;
 let ready = false;
 
 const clock = new THREE.Clock();
-
-// const loadingButton = document.getElementById("loadingButton");
-// loadingButton.addEventListener("click", function () {
-//   Ammo().then(function () {
-//     init();
-//     animate();
-//   });
-// });
 
 function init() {
   const overlay = document.getElementById("overlay");
@@ -126,8 +116,15 @@ function init() {
 
   // Remove the overlay
   overlay.remove();
+  expose();
 
   window.addEventListener("resize", onWindowResize);
+}
+
+function expose() {
+  document.body.style.color = "#d5d5d5";
+  const anchor = document.getElementById("anchor");
+  anchor.style.color = "#08f";
 }
 
 function onWindowResize() {
@@ -137,7 +134,7 @@ function onWindowResize() {
   effect.setSize(window.innerWidth, window.innerHeight);
 }
 
-//
+// Animation loop
 
 function animate() {
   requestAnimationFrame(animate);
@@ -151,8 +148,6 @@ function render() {
 
   effect.render(scene, camera);
 }
-
-console.log("Animation loaded!");
 
 // Automatically start the animation
 Ammo().then(function () {
