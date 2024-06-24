@@ -37,7 +37,7 @@ All you need to do is just host those static files and enjoy dancing miku!
 Also, you may actually run the docker image hosted on GitHub Container Registry:
 
 ```bash
-docker run -p 3000:3000 ghcr.io/orzklv/kolyma:latest
+docker run -p 3000:80 ghcr.io/kolyma-labs/gate:master
 ```
 
 ## License
