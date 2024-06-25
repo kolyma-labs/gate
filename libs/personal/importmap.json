@@ -1,6 +1,0 @@
-{
-    "imports": {
-      "three": "./libs/three/three.module.js",
-      "three/addons/": "./libs/"
-    }
-}

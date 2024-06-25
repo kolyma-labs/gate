@@ -27,7 +27,14 @@
     <script src="libs/libs/ammo.wasm.js"></script>
     <script src="libs/personal/ascii.js"></script>
     <script async src="libs/shims/modules.js"></script>
-    <script type="importmap" src="libs/personal/importmap.json"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./libs/three/three.module.js",
+          "three/addons/": "./libs/"
+        }
+      }
+    </script>
     <script type="module" src="libs/personal/animation.js"></script>
   </body>
 </html>
