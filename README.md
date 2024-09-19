@@ -8,7 +8,6 @@
 
 <p align="center">
     <img align="center" src="https://img.shields.io/github/languages/top/kolyma-labs/gate?style=flat&logo=nixos&logoColor=ffffff&labelColor=242424&color=242424" alt="Top Used Language">
-    <a href="https://github.com/kolyma-labs/gate/actions/workflows/build.yml"><img align="center" src="https://img.shields.io/github/actions/workflow/status/kolyma-labs/gate/build.yml?style=flat&logo=github&logoColor=ffffff&labelColor=242424&color=242424" alt="Test CI"></a>
 </p>
 
 </header>
