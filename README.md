@@ -31,14 +31,6 @@ library to animate the scheme.
 Website is built from static html, css and js files with its preloaded modules downloaded onto repo.
 All you need to do is just host those static files and enjoy dancing miku!
 
-## Docker
-
-Also, you may actually run the docker image hosted on GitHub Container Registry:
-
-```bash
-docker run -p 3000:80 ghcr.io/kolyma-labs/gate:master
-```
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
