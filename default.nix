@@ -15,6 +15,6 @@
 
   installPhase = ''
     mkdir -p $out/www
-    ls -la ./
+    mv ./* $out/www
   '';
 }
